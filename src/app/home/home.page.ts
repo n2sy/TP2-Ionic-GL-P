@@ -7,10 +7,10 @@ import { ListCoursesService } from '../list-courses.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
-  tab ;
-  constructor(private courseSer : ListCoursesService) {}
+  tab;
+  constructor(private courseSer: ListCoursesService) {}
   ngOnInit(): void {
     this.tab = this.courseSer.getAllCourses();
+    console.log(this.tab);
   }
-
 }
