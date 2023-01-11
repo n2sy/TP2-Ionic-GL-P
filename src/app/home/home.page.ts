@@ -8,9 +8,16 @@ import { ListCoursesService } from '../list-courses.service';
 })
 export class HomePage implements OnInit {
   tab;
-  constructor(private courseSer: ListCoursesService) {}
+  constructor(public courseSer: ListCoursesService) {}
   ngOnInit(): void {
     this.tab = this.courseSer.getAllCourses();
+
     console.log(this.tab);
+  }
+
+  ionViewWillEnter() {
+    console.log('Did Enter');
+
+    this.tab = this.courseSer.getAllCourses();
   }
 }

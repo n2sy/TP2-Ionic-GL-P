@@ -31,6 +31,12 @@ export class ListCoursesService {
     },
   ];
 
+  addCourse(newC) {
+    newC.id = this.tabCourses[this.tabCourses.length - 1].id + 1;
+    newC.keywords = newC.keywords.split(',');
+    this.tabCourses.push(newC);
+  }
+
   getAllCourses() {
     return this.tabCourses;
   }
@@ -40,10 +46,12 @@ export class ListCoursesService {
   }
 
   deleteCourse(course) {
-    let i = this.tabCourses.indexOf(course);
-    this.tabCourses.splice(i, 1);
-    // this.tabCourses = this.tabCourses.filter((c) => c.id != id);
-    // console.log(this.tabCourses);
+    // this.tabCourses.splice(
+    //   this.tabCourses.findIndex((c) => c.id == course.id),
+    //   1
+    // );
+
+    this.tabCourses = this.tabCourses.filter((c) => c.id != course.id);
   }
   constructor() {}
 }
